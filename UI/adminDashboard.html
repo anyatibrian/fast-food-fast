@@ -40,7 +40,7 @@
     <div class="row userAdmin-dashboard-content">
         <div class="">
                 <!-- the begining of the tables -->
-                <button class="add-item" id="add-food">add</button>
+                <button class="add-item" id="add-food" onclick="addBtn();">add</button>
                 <table id="myTable">
                     <tr class="header">
                         <th style="width:10%;">Image</th>
@@ -149,10 +149,11 @@
     <!--- modal boxes for adding food to the list-->
     <div class="row">
         <div class="modal" id="add-food-modal">
-            <div class="column-sm">
+            <div class="col-4">
                 <P></P>
             </div>
-            <div class="column-sm">
+            <div class="col-4">
+                <span class="close">&times;</span>
                 <div class="form-area-section">
                     <h1 class="text-white text-large">add food details here</h1>
                     <form method="post" action="">
