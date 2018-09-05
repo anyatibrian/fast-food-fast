@@ -15,22 +15,25 @@
     <!---- the navigation section of the app-->
     <div class="nav-section">
         <div class="row">
+            <div class="col-2">
+                <p><img src="images/logo-white.png" class="site-logo"></p>
+            </div>
+            <div class="col-8">
                 <ul>
-                    <div class="col-2">
-                        <p></p>
-                    </div>
-                    <div class="col-6">
+                    <li>
+                        <a href="#" class="">order Now</a>
+                    </li>
                         <li>
                             <a href="history.html" class="">history</a>
                         </li>
                         <li>
-                            <a href="#" class="active">order Now</a>
+                            <a href="#" class="">logo out</a>
                         </li>
-                    </div>
-                    <div class="col-2 user-area">
-                        <img src="images/davide-cantelli-148407-unsplash.jpg">
-                    </div>
                 </ul>
+            </div>
+            <div class="col-1 user-area">
+                <img src="images/davide-cantelli-148407-unsplash.jpg" id="profile-pic">
+            </div>
         </div>
 
     </div>
@@ -40,9 +43,9 @@
     <div class="row  user-dashboard-content">
         <div class="">
             <div class="col-2">
-                <img src="images/davide-cantelli-148407-unsplash.jpg" class="img-circle">
+                <img src="images/davide-cantelli-148407-unsplash.jpg" class="img-circle" id="">
             </div>
-            <div class="col-10">
+            <div class="col-9">
                 <h1> chicken pizza <small>price:1200ugx</small></h1>
                 <p>All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
                     The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
@@ -53,7 +56,7 @@
         <div class="col-2">
             <img src="images/robin-stickel-82145-unsplash.jpg" class="img-circle">
         </div>
-        <div class="col-10">
+        <div class="col-9">
             <h1> chicken buggers <small>price:2400ugx</small></h1>
             <p>All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
                 The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
@@ -63,12 +66,51 @@
         <div class="col-2">
             <img src="images/alex-loup-397220-unsplash.jpg" class="img-circle">
         </div>
-        <div class="col-10">
+        <div class="col-9">
             <h1>Glass of Juice <small>price:600ugx</small></h1>
             <p>All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
                 The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
             </p>
             <a href="order.html"><button class="button-sunshine-outline" id="order-btn">order now</button></a>
+        </div>
+    </div>
+</div>
+<!-- edit profile modal-->
+<!-- The Modal -->
+<div class="row">
+    <div class="modal" id="profile-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close">&times;</span>
+            <div class="form-area-section">
+                <img src="images/davide-cantelli-148407-unsplash.jpg" class="image-profile">
+                <h1 class="text-white text-large">edit profile</h1>
+                <form method="post" action="">
+                    <div>
+                        <label for="username" class="text-white">username</label>
+                        <input type="text" name="food-name" id="username" class="form-control">
+                    </div>
+                    <div>
+                        <label for="email" class="text-white">E-mail</label>
+                        <input type="text" name="price" id="email" class="form-control">
+                    </div>
+                    <div>
+                        <label for="password" class="text-white">password</label>
+                        <input type="text" name="price" id="password" class="form-control">
+                    </div>
+                    <div>
+                        <label for="profile-image" class="text-white">image</label>
+                        <input type="file" name="food-image" id="profile-image" class="form-control">
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <input type="submit" name="submit"  value="submit" id="submit" class="button-white">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
