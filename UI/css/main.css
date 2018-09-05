@@ -131,7 +131,7 @@ li a:hover {
     margin-top: 100px;
     margin-bottom:100px;
     background: grey;
-    padding:50px 50px 100px 50px ;
+    padding:100px 50px 100px 50px;
     opacity:0.8;
 }
 .form-control-order{
@@ -316,7 +316,7 @@ li a:hover {
     padding: 10px 30px 10px 30px;
     font-size: 15px;
     margin: 10px 0 10px 0;
-    color:orange;
+    color: #ffa500;
     border-radius: 5px;
     float: right;
     width:10%;
@@ -345,6 +345,10 @@ li a:hover {
     margin-top: 50px;
     background: #111111;
     padding: 50px 0px 50px 0px;
+}
+.footer-section2{
+    margin-top: 50px;
+    padding: 0px 0px 0px 0px;
 }
 .copy-right-area > p{
     text-align:center;

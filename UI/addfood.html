@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>order history</title>
+    <title>Admin|addfood</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 </head>
@@ -13,6 +13,7 @@
 
     </div>
     <!---- the navigation section of the app-->
+    <!---- the navigation section of the app-->
     <div class="nav-section">
         <div class="row">
             <div class="col-2">
@@ -21,10 +22,10 @@
             <div class="col-6">
                 <ul>
                     <li>
-                        <a href="#" class="">history</a>
+                        <a href="orderlist.html" class="">orders</a>
                     </li>
                     <li>
-                        <a href="userDashboard.html" class="active">order Now</a>
+                        <a href="adminDashboard.html" class="active">food</a>
                     </li>
                 </ul>
             </div>
@@ -44,22 +45,29 @@
             </div>
             <div class="col-4">
                 <div class="form-area-section">
-                    <h1 class="text-white text-large">place your order now</h1>
-                    <form method="post" action="">
+                    <h1 class="text-white text-large">add food details here</h1>
+                    <form method="post" action="adminDashboard.html">
                         <div>
-                            <label for="location" class="text-white">location</label>
-                            <input type="location" name="location" id="location" class="form-control">
+                            <label for="location" class="text-white">food name</label>
+                            <input type="text" name="food-name" id="location" class="form-control">
                         </div>
                         <div>
-                            <input type="radio" id="self-delivery"
-                                   name="self-delivery" value="self-delivery">
-                            <label for="self-delivery">self delivery</label>
-                            <input type="radio" id="delivered"
-                                   name="delivered" value="delivered">
-                            <label for="delivered">delivered</label>
+                            <label for="price" class="text-white">price</label>
+                            <input type="text" name="price" id="price" class="form-control">
                         </div>
                         <div>
-                            <input type="submit" name="submit"  value="order now" id="submit" class="button-sunshine-outline-order">
+                            <label for="food-image" class="text-white">image</label>
+                            <input type="file" name="food-image" id="food-image" class="form-control">
+                        </div>
+                        <div>
+                            <label for="food-desc" class="text-white"> description</label>
+                            <textarea name="food-desc" id="food-desc" class="form-control">
+                            </textarea>
+                        </div>
+                        <div>
+                        </div>
+                        <div>
+                            <input type="submit" name="submit"  value="Add meal" id="submit" class="button-sunshine-outline-order">
                         </div>
                     </form>
                 </div>
