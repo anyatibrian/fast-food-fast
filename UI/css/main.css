@@ -450,3 +450,28 @@ li:last-child {
     from {transform: scale(0)}
     to {transform: scale(1)}
 }
+/*notification span*/
+.notifi-class{
+    border: 1px solid white;
+    padding: 5px 5px 5px 5px;
+    border-radius: 50%;
+    background: white;
+    color:black;
+}
+/* home page content */
+.home-page-content {
+    padding-top:250px;
+    color: white;
+}
+.home-page-content>h1>a{
+    color: white;
+    text-decoration: none;
+    padding: 0px 0px 0px 10px;
+}
+.home-page-content>h1>a:hover{
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border: orange 3px solid;
+    border-radius:5px;
+
+}
