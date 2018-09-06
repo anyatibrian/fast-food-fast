@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1d2d3150-83af-4265-9c25-1efa193aa0ab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UI/addfood.html" afterPath="$PROJECT_DIR$/UI/addfood.html" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/UI/order.html" afterPath="$PROJECT_DIR$/UI/order.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addfood.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addfood.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/addfood.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="403">
@@ -123,6 +122,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UI/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="57" column="107" lean-forward="true" selection-start-line="57" selection-start-column="107" selection-end-line="57" selection-end-column="107" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -144,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/UI/order.html" />
         <option value="$PROJECT_DIR$/UI/signup.html" />
         <option value="$PROJECT_DIR$/UI/login.html" />
         <option value="$PROJECT_DIR$/UI/history.html" />
@@ -155,6 +163,7 @@
         <option value="$PROJECT_DIR$/UI/js/main.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/UI/addfood.html" />
+        <option value="$PROJECT_DIR$/UI/order.html" />
       </list>
     </option>
   </component>
@@ -265,12 +274,12 @@
       <workItem from="1536127602406" duration="8889000" />
       <workItem from="1536141703191" duration="14334000" />
       <workItem from="1536161751094" duration="9372000" />
-      <workItem from="1536220510340" duration="497000" />
+      <workItem from="1536220510340" duration="1228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37087000" />
+    <option name="totallyTimeSpent" value="37818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -559,6 +568,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -621,6 +631,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -673,6 +684,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -696,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="103" column="94" lean-forward="true" selection-start-line="103" selection-start-column="94" selection-end-line="103" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/Jobs in Uganda - 2 Child Protection Assistants Job at InterAid Uganda Limited ( IAU ) - Career Opportunity in Uganda_files/analytics.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -722,16 +727,6 @@
         <state relative-caret-position="450">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1746">
-          <caret line="97" column="53" lean-forward="false" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
-          <folding>
-            <element signature="e#4068#4075#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -804,6 +799,24 @@
           <folding>
             <element signature="e#3439#3446#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1746">
+          <caret line="97" column="53" lean-forward="false" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
+          <folding>
+            <element signature="e#4068#4075#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="57" column="107" lean-forward="true" selection-start-line="57" selection-start-column="107" selection-end-line="57" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>
