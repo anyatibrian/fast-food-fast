@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d2d3150-83af-4265-9c25-1efa193aa0ab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UI/addfood.html" afterPath="$PROJECT_DIR$/UI/addfood.html" />
-      <change beforePath="$PROJECT_DIR$/UI/adminDashboard.html" afterPath="$PROJECT_DIR$/UI/adminDashboard.html" />
-      <change beforePath="$PROJECT_DIR$/UI/history.html" afterPath="$PROJECT_DIR$/UI/history.html" />
-      <change beforePath="$PROJECT_DIR$/UI/login.html" afterPath="$PROJECT_DIR$/UI/login.html" />
-      <change beforePath="$PROJECT_DIR$/UI/order.html" afterPath="$PROJECT_DIR$/UI/order.html" />
-      <change beforePath="$PROJECT_DIR$/UI/orderlist.html" afterPath="$PROJECT_DIR$/UI/orderlist.html" />
-      <change beforePath="$PROJECT_DIR$/UI/userDashboard.html" afterPath="$PROJECT_DIR$/UI/userDashboard.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -258,12 +251,12 @@
       <workItem from="1536161751094" duration="9372000" />
       <workItem from="1536220510340" duration="2112000" />
       <workItem from="1536237347058" duration="1247000" />
-      <workItem from="1536321282798" duration="670000" />
+      <workItem from="1536321282798" duration="1263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40962000" />
+    <option name="totallyTimeSpent" value="41555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
