@@ -63,3 +63,4 @@ fabric.properties
 .idea/httpRequests
 #ignoring the .venv
 venv/
+.pytest_cache/*
