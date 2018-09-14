@@ -1,4 +1,3 @@
-import json
 from api import app
 
 json_data = {"username": "brian", "deliveryType": "self", "food": "fish", "location": "lira", "orderID": 4,
