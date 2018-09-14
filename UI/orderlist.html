@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user|Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+</head>
+<body class="">
+<!-----the header section of the app--->
+<header>
+    <div class="header-section">
+
+    </div>
+    <!---- the navigation section of the app-->
+    <div class="nav-section">
+        <div class="row">
+            <div class="col-2">
+                <p><img src="images/logo-white.png" class="site-logo"></p>
+            </div>
+            <div class="col-8">
+                <ul>
+                    <li>
+                        <a href="adminDashboard.html" class="">food list</a>
+                    </li>
+                    <li>
+                        <a href="orderlist.html" class="">orders <span class="notifi-class">56</span></a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="">logo out</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-1 user-area">
+                <img src="images/davide-cantelli-148407-unsplash.jpg" id="profile-pic">
+            </div>
+        </div>
+
+    </div>
+</header>
+<!--- the body section of the application-->
+<div class="body-section">
+    <div class="row userAdmin-dashboard-content">
+        <div class="">
+            <!-- the begining of the tables -->
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:10%;">Image</th>
+                    <th style="width:10%;">Meal</th>
+                    <th style="width:10%;">ordered by</th>
+                    <th style="width:10%;">delivery type</th>
+                    <th style="width:10%">pieces/plates</th>
+                    <th style="width:10%;">price</th>
+                    <th style="width:10%;">accept</th>
+                    <th style="width:10%;">Decline</th>
+                    <th style="width:10%;">completion</th>
+
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>Meats and Rices</td>
+                    <td>Jef</td>
+                    <td> delivered</td>
+                    <td>3</td>
+                    <td><small>price:6200ugx</small></td>
+                    <td><button id="accept" class="button-success">pending</button></td>
+                    <td><button id="Decline" class="button-success">pending</button></td></td>
+                    <td><button id="Completion" class="button-success">pending</button></td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>Brayan mirez</td>
+                    <td>Meat Stew</td>
+                    <td> pick up</td>
+                    <td>7</td>
+                    <td><small>price:900ugx</small></td>
+                    <td><button id="accept1" class="button-success">pending</button></td>
+                    <td><button id="Decline1" class="button-success">pending</button></td></td>
+                    <td><button id="Completion1" class="button-success">pending</button></td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>Teddy Bobs</td>
+                    <td>samussa</td>
+                    <td>delivered</td>
+                    <td>6</td>
+                    <td><small>price:1500ugx</small></td>
+                    <td><button id="accept2" class="button-success">pending</button></td>
+                    <td><button id="Decline2" class="button-success">pending</button></td></td>
+                    <td><button id="Completion2" class="button-success">pending</button></td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>Benson walk</td>
+                    <td>nyama choma</td>
+                    <td>Pick up</td>
+                    <td>8</td>
+                    <td><small>price:3200ugx</small></td>
+                    <td><button id="accept3" class="button-success">pending</button></td>
+                    <td><button id="Decline3" class="button-success">pending</button></td></td>
+                    <td><button id="Completion3" class="button-success">pending</button></td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>Godwin Walker</td>
+                    <td>chicken stew</td>
+                    <td>Delivered</td>
+                    <td>7</td>
+                    <td><small>price:1200ugx</small></td>
+                    <td><button id="accept4" class="button-success">pending</button></td>
+                    <td><button id="Decline4" class="button-success">pending</button></td></td>
+                    <td><button id="Completion4" class="button-success">pending</button></td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/davide-cantelli-148407-unsplash.jpg" class="image-circle-3"></td>
+                    <td>robert Johns</td>
+                    <td>Chicken Pizza</td>
+                    <td>Pickup</td>
+                    <td>6</td>
+                    <td><small>price:1500ugx</small></td>
+                    <td><button id="accept5" class="button-success">pending</button></td>
+                    <td><button id="Decline5" class="button-success">pending</button></td></td>
+                    <td><button id="Completion5" class="button-success">pending</button></td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<!-- The Modal -->
+<div class="row">
+    <div class="modal" id="profile-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close" id="close" onclick="closeModal()">&times;</span>
+            <div class="form-area-section">
+                <img src="images/davide-cantelli-148407-unsplash.jpg" class="image-profile">
+                <h1 class="text-white text-large">edit profile</h1>
+                <form method="post" action="">
+                    <div>
+                        <label for="username" class="text-white">username</label>
+                        <input type="text" name="food-name" id="username" class="form-control">
+                    </div>
+                    <div>
+                        <label for="email" class="text-white">E-mail</label>
+                        <input type="text" name="price" id="email" class="form-control">
+                    </div>
+                    <div>
+                        <label for="password" class="text-white">password</label>
+                        <input type="text" name="price" id="password" class="form-control">
+                    </div>
+                    <div>
+                        <label for="profile-image" class="text-white">image</label>
+                        <input type="file" name="food-image" id="profile-image" class="form-control">
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <input type="submit" name="submit"  value="submit" id="submit" class="button-white">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- the footer section of the app--->
+<div class="footer-section">
+    <div class="footer-area">
+    </div>
+    <div class="copy-right-area">
+        <P>all rights reserved foot-fast-food 2018</P>
+    </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

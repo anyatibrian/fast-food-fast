@@ -1,5 +1,5 @@
 import json
-from fastfoodfast import app
+from api import app
 
 json_data = {"username": "brian", "deliveryType": "self", "food": "fish", "location": "lira", "orderID": 4,
              "orderStatus": "pending", "pieces": "1"}
