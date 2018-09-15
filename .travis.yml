@@ -2,9 +2,11 @@ language: python
 python:
   - "3.6"
 install:
+  - pip install pytest-cov
+  - pip install coveralls
   - pip install -r requirements.txt
 script:
-  - py.test test/
+  - py.test --cov-config .coveragerc --cov=app   test/
   - coverage report
 after_success:
   - coveralls

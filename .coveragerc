@@ -13,5 +13,5 @@ omit =
 branch = true
 include = */scrapy/*
 omit =
-    tests/*
+    test/*
     scrapy/xlib/*
