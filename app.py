@@ -5,7 +5,7 @@ from api.modules import Orders, order_collection
 
 @app.route('/', methods=['GET'])
 def get_index():
-    return make_response(jsonify({'message': 'hi there your welcome'}))
+    return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
 
 @app.route('/api/v1/orders', methods=['POST'])
