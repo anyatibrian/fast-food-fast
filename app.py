@@ -3,6 +3,11 @@ from flask import jsonify, request, make_response
 from api.modules import Orders, order_collection
 
 
+@app.route('/', methods=['GET'])
+def get_index():
+    return jsonify({'message':'hi there your welcome'})
+
+
 @app.route('/orders', methods=['POST'])
 def post_orders():
     # function that allows you to make your order
@@ -11,9 +16,9 @@ def post_orders():
         order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                        delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
         order.covert_json()
-        return make_response(jsonify({'message': 'the your order has been placed'}), 200)
+        return make_response(jsonify({'message': 'the your order has been placed'}), 201)
     else:
-        return jsonify({'error': 'bad request'}), 405
+        return jsonify({'error': 'bad request'}), 404
 
 
 @app.route('/orders', methods=['GET'])
