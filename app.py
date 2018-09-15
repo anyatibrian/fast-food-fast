@@ -18,7 +18,7 @@ def post_orders():
         order.covert_json()
         return make_response(jsonify({'message': 'the your order has been placed'}), 201)
     else:
-        return jsonify({'error': 'bad request'}), 404
+        return jsonify({'error': 'bad request'}), 405
 
 
 @app.route('/api/v1/orders', methods=['GET'])
@@ -30,7 +30,7 @@ def get_orders():
         else:
             return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 204)
     else:
-        return make_response(jsonify({'error': 'request method not allowed'}), 404)
+        return make_response(jsonify({'error': 'request method not allowed'}), 405)
 
 
 @app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
