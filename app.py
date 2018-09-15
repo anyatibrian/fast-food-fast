@@ -5,10 +5,10 @@ from api.modules import Orders, order_collection
 
 @app.route('/', methods=['GET'])
 def get_index():
-    return jsonify({'message':'hi there your welcome'})
+    return jsonify({'message': 'hi there your welcome'})
 
 
-@app.route('/orders', methods=['POST'])
+@app.route('/api/V1/orders', methods=['POST'])
 def post_orders():
     # function that allows you to make your order
     if request.method == 'POST':
@@ -21,7 +21,7 @@ def post_orders():
         return jsonify({'error': 'bad request'}), 404
 
 
-@app.route('/orders', methods=['GET'])
+@app.route('/api/V1/orders', methods=['GET'])
 def get_orders():
     # creating an endpoint to return all the orders made by the user
     if request.method == 'GET':
@@ -33,7 +33,7 @@ def get_orders():
         return make_response(jsonify({'error': 'request method not allowed'}), 404)
 
 
-@app.route('/orders/<int:orderID>', methods=['GET'])
+@app.route('/api/V1/orders/<int:orderID>', methods=['GET'])
 def get_single_order(orderID):
     # end point that enables the fetching of a single order
     if request.method == 'GET':
@@ -45,7 +45,7 @@ def get_single_order(orderID):
     return make_response(jsonify({'error': 'request method not allowed'}), 405)
 
 
-@app.route('/orders/<int:orderID>', methods=['PUT'])
+@app.route('/api/V1/orders/<int:orderID>', methods=['PUT'])
 def put_orders(orderID):
     # the end point for updating the order list
     if request.method == 'PUT':
