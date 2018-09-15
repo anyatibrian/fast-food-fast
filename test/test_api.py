@@ -66,6 +66,11 @@ class TestEndPoints(unittest.TestCase):
         response = test_client.put('/api/v1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
         self.assertTrue(b'the order does not exist' in response.data)
 
+    def test_index_page_loaded(self):
+        test_client = app.test_client(self)
+        response = test_client.get('/')
+        self.assertTrue(b'hi there your welcome to fast food fast' in response.data)
+
 
 if __name__ == '__main__':
     unittest.run()
