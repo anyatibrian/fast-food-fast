@@ -20,27 +20,27 @@ class TestEndPoints(unittest.TestCase):
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
 
-    def test_loaded_post_page(self):
-        # checking were the posting of data was made
+    def test_successive_post(self):
+        """checking were the posting of data was made"""
         test_client = app.test_client(self)
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertTrue(b'the your order has been placed' in response.data)
 
     def test_get_all_orders_endPoints(self):
         test_client = app.test_client(self)
-        # making post in order to get data
+        """ making sure data is posted before were retrieve the all orders"""
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
-        # getting response that has been posted
+        """checking were the posting of data was made"""
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
 
-    def test_put_request_for_order_endpoints(self):
-        # posting data before editing it
+    def test_get_single_order_endpoints(self):
+        """ making a post request before we can edit the list"""
         test_client = app.test_client(self)
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
-        # edit data using the put request
+        """ making get request for single  project"""
         response = test_client.get('/api/v1/orders/1')
         self.assertEqual(response.status_code, 200)
 
