@@ -29,36 +29,36 @@ class TestEndPoints(unittest.TestCase):
     def test_get_all_orders_endPoints(self):
         test_client = app.test_client(self)
         # making post in order to get data
-        response = test_client.post('/api/V1/orders', content_type='html/text', data=json.dumps(orders))
+        response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
         # getting response that has been posted
-        response = test_client.post('/api/V1/orders', content_type='html/text', data=json.dumps(orders))
+        response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
 
     def test_put_request_for_order_endpoints(self):
         # posting data before editing it
         test_client = app.test_client(self)
-        response = test_client.post('/api/V1/orders', content_type='html/text', data=json.dumps(orders))
+        response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
         # edit data using the put request
-        response = test_client.get('/api/V1/orders/1')
+        response = test_client.get('/api/v1/orders/1')
         self.assertEqual(response.status_code, 200)
 
     def test_check_whether_order_notExist(self):
         test_client = app.test_client(self)
-        response = test_client.get('/api/V1/orders/0')
+        response = test_client.get('/api/v1/orders/0')
         self.assertTrue(b'the order does not exist' in response.data)
 
     def test_put_request_for_endPoints(self):
         # editing each order
         test_client = app.test_client(self)
-        response = test_client.put('/api/V1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
+        response = test_client.put('/api/v1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
         self.assertTrue(response.status, 200)
 
     def testing_no_order_in_the_list(self):
         # checking whether data exist or not
         test_client = app.test_client(self)
-        response = test_client.put('/api/V1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
+        response = test_client.put('/api/v1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
         self.assertTrue(b'the order does not exist' in response.data)
 
 
