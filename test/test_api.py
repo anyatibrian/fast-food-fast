@@ -17,13 +17,13 @@ class TestEndPoints(unittest.TestCase):
     # checking whether the post was made
     def test_post_order_endpoints(self):
         test_client = app.test_client(self)
-        response = test_client.post('/api/V1/orders', content_type='html/text', data=json.dumps(orders))
+        response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
 
     def test_loaded_post_page(self):
         # checking were the posting of data was made
         test_client = app.test_client(self)
-        response = test_client.post('/api/V1/orders', content_type='html/text', data=json.dumps(orders))
+        response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertTrue(b'the your order has been placed' in response.data)
 
     def test_get_all_orders_endPoints(self):
