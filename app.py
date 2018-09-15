@@ -11,14 +11,11 @@ def get_index():
 @app.route('/api/v1/orders', methods=['POST'])
 def post_orders():
     # function that allows you to make your order
-    if request.method == 'POST':
-        json_data = request.get_json(force=True)
-        order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
-                       delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
-        order.covert_json()
-        return make_response(jsonify({'message': 'the your order has been placed'}), 201)
-    else:
-        return jsonify({'error': 'bad request'}), 405
+    json_data = request.get_json(force=True)
+    order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
+                   delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
+    order.covert_json()
+    return make_response(jsonify({'message': 'the your order has been placed'}), 201)
 
 
 @app.route('/api/v1/orders', methods=['GET'])
@@ -37,7 +34,7 @@ def get_orders():
 def get_single_order(orderID):
     # end point that enables the fetching of a single order
     if request.method == 'GET':
-        if orderID!= 0:
+        if orderID != 0:
             orders = [order for order in order_collection if order['orderID'] == orderID]
             return make_response(jsonify({'orders': orders[0]}), 200)
         else:
