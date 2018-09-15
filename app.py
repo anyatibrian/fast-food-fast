@@ -21,13 +21,10 @@ def post_orders():
 @app.route('/api/v1/orders', methods=['GET'])
 def get_orders():
     # creating an endpoint to return all the orders made by the user
-    if request.method == 'GET':
-        if len(order_collection) > 0:
-            return make_response(jsonify({'orders made': order_collection}), 200)
-        else:
-            return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 204)
+    if len(order_collection) > 0:
+        return make_response(jsonify({'orders made': order_collection}), 200)
     else:
-        return make_response(jsonify({'error': 'request method not allowed'}), 405)
+        return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 204)
 
 
 @app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
