@@ -35,6 +35,11 @@ class TestEndPoints(unittest.TestCase):
         response = test_client.get('/api/v1/orders', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+    def test_order_not_found(self):
+        test_client = app.test_client(self)
+        response = test_client.get('/api/v1/orders', content_type='html/text')
+        self.assertFalse(b'you dont have any orders yet' in response.data)
+
     def test_get_single_order_endpoints(self):
         """ making a post request before we can edit the list"""
         test_client = app.test_client(self)
@@ -46,7 +51,7 @@ class TestEndPoints(unittest.TestCase):
 
     def test_check_whether_order_notExist(self):
         test_client = app.test_client(self)
-        response = test_client.get('/api/v1/orders/1')
+        response = test_client.get('/api/v1/orders/4')
         self.assertFalse(b'you dont have any orders yet' in response.data)
 
     def test_put_request_for_endPoints(self):
