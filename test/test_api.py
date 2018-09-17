@@ -14,7 +14,7 @@ orders = {
 
 
 class TestEndPoints(unittest.TestCase):
-    # checking whether the post was made
+    # checking whether the post was made by a user
     def test_post_order_endpoints(self):
         test_client = app.test_client(self)
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
