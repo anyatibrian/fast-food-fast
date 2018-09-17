@@ -29,7 +29,7 @@ def get_orders():
 
 @app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
 def get_single_order(orderID):
-    # end point that enables the fetching of a single order
+    # end point that enables the fetching of a single order by the user
     if request.method == 'GET':
         if orderID != 0:
             orders = [order for order in order_collection if order['orderID'] == orderID]
