@@ -10,7 +10,7 @@ def get_index():
 
 @app.route('/api/v1/orders', methods=['POST'])
 def post_orders():
-    # function that allows you to make your order
+    # function that allow making of orders
     json_data = request.get_json(force=True)
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
