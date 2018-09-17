@@ -20,7 +20,7 @@ def post_orders():
 
 @app.route('/api/v1/orders', methods=['GET'])
 def get_orders():
-    # creating an endpoint to return all the orders made by the user
+    # creating an endpoint that  returns all the orders made by the user
     if len(order_collection) > 0:
         return make_response(jsonify({'orders made': order_collection}), 200)
     else:
