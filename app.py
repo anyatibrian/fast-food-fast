@@ -3,12 +3,12 @@ from flask import jsonify, request, make_response
 from api.modules import Orders, order_collection
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
 
-@app.route('/api/v1/orders', methods=['POST'])
+@app.route('/api/v1/orders', methods=['GET', 'POST'])
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
