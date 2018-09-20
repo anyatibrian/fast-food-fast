@@ -18,7 +18,7 @@ def post_orders():
     return make_response(jsonify({'message': 'the your order has been placed'}), 201)
 
 
-@app.route('/api/v1/orders', methods=['GET'])
+@app.route('/api/v1/orders', methods=['GET', 'POST'])
 def get_orders():
     # creating an endpoint that  returns all the orders made by the user
     if len(order_collection) > 0:
@@ -27,7 +27,7 @@ def get_orders():
         return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 204)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'POST'])
 def get_single_order(orderID):
     # end point that enables the fetching of a particular order by the user
     if request.method == 'GET':
@@ -39,7 +39,7 @@ def get_single_order(orderID):
     return make_response(jsonify({'error': 'request method not allowed'}), 405)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['PUT'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'PUT'])
 def put_orders(orderID):
     # the end point for updating the order list
     if request.method == 'PUT':
