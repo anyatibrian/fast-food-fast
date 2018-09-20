@@ -30,7 +30,7 @@ These are the endpoints
 | PUT    | /api/v1/orders/id | Update a specific orders status to 'complete','pending','incomplete' | order_status                                                   |
 |                                 |                                                                |
 
-APIs are Hosted at https://fast-food-fast-ab.herokuapp.com/
+APIs are Hosted at https://fast-food-fast-ab.herokuapp.com/api/v1/orders
 
 Sample get all orders
 
@@ -61,10 +61,10 @@ These are instructions for setting up Fast Food Fast app in a development enivor
   $ git clone https://github.com/anyatibrian/fast-food-fast.git
   ```
 
-* switch to challenge2 branch
+* switch to ApiV1 branch
 
   ```
-  $ git checkout challenge2
+  $ git checkout ApiV1
   ```
 
 * Install necessary requirements
