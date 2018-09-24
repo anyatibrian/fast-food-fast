@@ -64,5 +64,5 @@ fabric.properties
 #ignoring the .venv
 venv/
 .pytest_cache/*
-.idea/
+.idea/*
 api/__pycache__/
