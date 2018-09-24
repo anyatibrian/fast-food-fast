@@ -66,3 +66,4 @@ venv/
 .pytest_cache/*
 .idea/*
 api/__pycache__/
+__pycache__/
