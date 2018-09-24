@@ -18,7 +18,7 @@ def post_orders():
     return make_response(jsonify({'message': 'the your order has been placed'}), 201)
 
 
-@app.route('/api/v1/orders', methods=['GET', 'POST'])
+@app.route('/api/v1/orders/', methods=['GET', 'POST'])
 def get_orders():
     # creating an endpoint that  returns all the orders made by the user
     if len(order_collection) > 0:

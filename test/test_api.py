@@ -31,8 +31,8 @@ class TestEndPoints(unittest.TestCase):
         """ making sure data is posted before were retrieve the all orders"""
         response = test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(orders))
         self.assertEqual(response.status_code, 201)
-        """checking were the posting of data was made"""
-        response = test_client.get('/api/v1/orders', content_type='html/text')
+        """getting data posted data"""
+        response = test_client.get('/api/v1/orders/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
     def test_order_not_found(self):
@@ -52,7 +52,7 @@ class TestEndPoints(unittest.TestCase):
     def test_check_whether_order_notExist(self):
         test_client = app.test_client(self)
         response = test_client.get('/api/v1/orders/4')
-        self.assertFalse(b'you dont have any orders yet' in response.data)
+        self.assertFalse(b'you dont have any orders yet' in response.get_data())
 
     def test_put_request_for_endPoints(self):
         # editing each order
