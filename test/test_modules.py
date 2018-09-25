@@ -8,7 +8,7 @@ class TestOrders(unittest.TestCase):
         self.single_order = order_collection
 
     def tearDown(self):
-        pass
+        del self.order
 
     def test_order_module(self):
         """ checking various instance of the orders module """
