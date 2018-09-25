@@ -475,3 +475,8 @@ li:last-child {
     border-radius:5px;
 
 }
+/*padding left of 100*/
+.padding-par{
+    padding-top: 10px;
+    padding-left:80px;
+}
