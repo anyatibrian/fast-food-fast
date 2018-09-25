@@ -42,8 +42,8 @@ class TestEndPoints(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_order_not_found(self):
-        response = self.test_client.get('/api/v1/orders', content_type='html/text')
-        self.assertFalse(b'you dont have any orders yet' in response.data)
+        response = self.test_client.get('/api/v1/orders/20', content_type='html/text')
+        self.assertTrue(b"you don't have such an order" in response.data)
 
     def test_get_single_order_endpoints(self):
         """ making a post request before we can edit the list"""
@@ -53,14 +53,15 @@ class TestEndPoints(unittest.TestCase):
         response = self.test_client.get('/api/v1/orders/1')
         self.assertEqual(response.status_code, 200)
 
-    def test_check_whether_order_notExist(self):
-        response = self.test_client.get('/api/v1/orders/4')
-        self.assertFalse(b'you dont have any orders yet' in response.get_data())
+    def test_put_orders_endpoints(self):
+        """testing the user put order endpoint"""
+        response = self.test_client.put('/api/v1/orders/1', data=json.dumps(dict(orderStatus="complete")))
+        self.assertEqual(response.status_code, 200)
 
-    def test_put_request_for_endPoints(self):
-        # editing each order
-        response = self.test_client.put('/api/v1/orders/0', data=json.dumps(dict(orderStaus="orderStatus")))
-        self.assertTrue(response.status, 200)
+    def test_put_order_when_endpoint(self):
+        """testing the user put order endpoint"""
+        response = self.test_client.put('/api/v1/orders/20', data=json.dumps(dict(orderStatus="complete")))
+        self.assertTrue(b"the order does not exist" in response.data)
 
     def test_index_page_loaded(self):
         response = self.test_client.get('/')

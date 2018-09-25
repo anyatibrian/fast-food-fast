@@ -3,6 +3,11 @@ from flask import jsonify, request, make_response
 from api.modules import Orders, order_collection
 
 
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({error: 'Not found'}), 204)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
@@ -24,19 +29,16 @@ def get_orders():
     if len(order_collection) > 0:
         return make_response(jsonify({'orders made': order_collection}), 200)
     else:
-        return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 204)
+        return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 404)
 
 
 @app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'POST'])
 def get_single_order(orderID):
     # end point that enables the fetching of a particular order by the user
-    if request.method == 'GET':
-        if orderID != 0:
-            orders = [order for order in order_collection if order['orderID'] == orderID]
-            return make_response(jsonify({'orders': orders[0]}), 200)
-        else:
-            return make_response(jsonify({'error': 'the order does not exist'}), 404)
-    return make_response(jsonify({'error': 'request method not allowed'}), 405)
+    orders = [order for order in order_collection if order['orderID'] == orderID]
+    if len(orders) == 0:
+        return make_response(jsonify({"message": "you don't have such an order"}), 404)
+    return make_response(jsonify({'orders': orders[0]}), 200)
 
 
 @app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'PUT'])
@@ -44,12 +46,12 @@ def put_orders(orderID):
     # the end point for updating the order list
     if request.method == 'PUT':
         json_data = request.get_json(force=True)
-        if orderID != 0:
-            orders = [order for order in order_collection if order['orderID'] == orderID]
-            orders[0]['orderStatus'] = json_data['orderStatus']
-            return make_response(jsonify({'orders': orders[0]}))
-        else:
+        orders = [order for order in order_collection if order['orderID'] == orderID]
+        if len(orders) == 0:
             return make_response(jsonify({'error': 'the order does not exist'}), 404)
+        else:
+            orders[0]['orderStatus'] = json_data['orderStatus']
+            return make_response(jsonify({'orders': orders[0]}, 200))
 
     else:
         return make_response(jsonify({'error': 'request method not allowed'}), 405)
