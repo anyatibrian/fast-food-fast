@@ -8,12 +8,12 @@ def not_found(error):
     return make_response(jsonify({"error": "the order does not exist"}), 404)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
 
-@app.route('/api/v1/orders', methods=['POST'])
+@app.route('/api/v1/orders', methods=['GET', 'POST'])
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
