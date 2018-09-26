@@ -5,7 +5,7 @@ from api.modules import Orders, order_collection
 
 @app.errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({error: 'Not found'}), 204)
+    return make_response(jsonify({error: 'Not found'}), 404)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -20,7 +20,7 @@ def post_orders():
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
     order.covert_json()
-    return make_response(jsonify({'message': 'the your order has been placed'}), 201)
+    return make_response(jsonify({'error': 'the your order has been placed'}), 201)
 
 
 @app.route('/api/v1/orders/', methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def get_single_order(orderID):
     # end point that enables the fetching of a particular order by the user
     orders = [order for order in order_collection if order['orderID'] == orderID]
     if len(orders) == 0:
-        return make_response(jsonify({"message": "you don't have such an order"}), 404)
+        return make_response(jsonify({'error': 'the order does not exist'}), 404)
     return make_response(jsonify({'orders': orders[0]}), 200)
 
 
@@ -51,7 +51,7 @@ def put_orders(orderID):
             return make_response(jsonify({'error': 'the order does not exist'}), 404)
         else:
             orders[0]['orderStatus'] = json_data['orderStatus']
-            return make_response(jsonify({'orders': orders[0]}, 200))
+            return make_response(jsonify({'message': 'successfully updated'}), 200)
 
     else:
         return make_response(jsonify({'error': 'request method not allowed'}), 405)

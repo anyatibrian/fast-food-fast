@@ -42,8 +42,8 @@ class TestEndPoints(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_order_not_found(self):
-        response = self.test_client.get('/api/v1/orders/20', content_type='html/text')
-        self.assertTrue(b"you don't have such an order" in response.data)
+        response = self.test_client.get('/api/v1/orders/0', content_type='html/text')
+        self.assertEqual(json.loads(response.data)["error"], "the order does not exist")
 
     def test_get_single_order_endpoints(self):
         """ making a post request before we can edit the list"""
@@ -55,13 +55,13 @@ class TestEndPoints(unittest.TestCase):
 
     def test_put_orders_endpoints(self):
         """testing the user put order endpoint"""
-        response = self.test_client.put('/api/v1/orders/1', data=json.dumps(dict(orderStatus="complete")))
-        self.assertEqual(response.status_code, 200)
+        response = self.test_client.put('/api/v1/orders/3', data=json.dumps(dict(orderStatus="complete")))
+        self.assertEqual(json.loads(response.data)["message"], "successfully updated")
 
-    def test_put_order_when_endpoint(self):
+    def test_put_order_not_exist_endpoint(self):
         """testing the user put order endpoint"""
         response = self.test_client.put('/api/v1/orders/20', data=json.dumps(dict(orderStatus="complete")))
-        self.assertTrue(b"the order does not exist" in response.data)
+        self.assertEqual(json.loads(response.data)["error"], "the order does not exist")
 
     def test_index_page_loaded(self):
         response = self.test_client.get('/')
