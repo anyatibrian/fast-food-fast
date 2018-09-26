@@ -10,6 +10,14 @@ class Orders:
         self.pieces = pieces
         self.orderStatus = orderStatus
 
+    def validate_orders(self, orders):
+        if "username" in orders and "food " in orders and "location" in orders \
+                and "deliveryType" in orders and "pieces" \
+                in orders and "orderStatus" in orders:
+            return True
+        else:
+            return False
+
     def covert_json(self):
         orders = {
             "orderID": len(order_collection)+1,
@@ -22,3 +30,5 @@ class Orders:
         }
         order_collection.append(orders)
         return order_collection
+
+

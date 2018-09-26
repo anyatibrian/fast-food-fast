@@ -13,14 +13,19 @@ def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
 
-@app.route('/api/v1/orders', methods=['GET', 'POST'])
+@app.route('/api/v1/orders', methods=['POST'])
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
-                   delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
-    order.covert_json()
-    return make_response(jsonify({'message': 'the your order has been placed'}), 201)
+                   delivery_type=json_data['deliveryType'], pieces=json_data['pieces'],
+                   orderStatus=json_data['orderStatus'])
+    validate_orders = order.validate_orders(json_data)
+    if validate_orders:
+        order.covert_json()
+        return make_response(jsonify({'message': 'the your order has been placed'}), 201)
+    else:
+        return jsonify({'message': 'list is empty'})
 
 
 @app.route('/api/v1/orders/', methods=['GET', 'POST'])
@@ -41,7 +46,7 @@ def get_single_order(orderID):
     return make_response(jsonify({'orders': orders[0]}), 200)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'PUT'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['PUT'])
 def put_orders(orderID):
     # the end point for updating the order list
     if request.method == 'PUT':
