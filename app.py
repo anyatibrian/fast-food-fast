@@ -5,34 +5,34 @@ from api.modules import Orders, order_collection
 
 @app.errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({error: 'Not found'}), 404)
+    return make_response(jsonify({"error": "the order does not exist"}), 404)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
 
-@app.route('/api/v1/orders', methods=['GET', 'POST'])
+@app.route('/api/v1/orders', methods=['POST'])
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
     order.covert_json()
-    return make_response(jsonify({'error': 'the your order has been placed'}), 201)
+    return make_response(jsonify({'message': 'the your order has been placed'}), 201)
 
 
-@app.route('/api/v1/orders/', methods=['GET', 'POST'])
+@app.route('/api/v1/orders/', methods=['GET'])
 def get_orders():
     # creating an endpoint that  returns all the orders made by the user
     if len(order_collection) > 0:
         return make_response(jsonify({'orders made': order_collection}), 200)
     else:
-        return make_response(jsonify({'orders made': 'you dont have any orders yet'}), 404)
+        return make_response(jsonify({'error': 'the order does not exist'}), 404)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'POST'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
 def get_single_order(orderID):
     # end point that enables the fetching of a particular order by the user
     orders = [order for order in order_collection if order['orderID'] == orderID]
@@ -41,7 +41,7 @@ def get_single_order(orderID):
     return make_response(jsonify({'orders': orders[0]}), 200)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'PUT'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['PUT'])
 def put_orders(orderID):
     # the end point for updating the order list
     if request.method == 'PUT':
