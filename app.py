@@ -12,11 +12,9 @@ def get_index():
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
-    if json_data['location'] and json_data['food'] and json_data['username'] == "":
+    if json_data['location'] == "" or json_data['food'] == "" or json_data['username'] == "" or \
+            json_data['deliveryType'] == "" or json_data['pieces'] == "":
         return make_response(jsonify({"error": "some of the values are empty"}), 400)
-    elif json_data['deliveryType'] and json_data['pieces'] == "":
-        return make_response(jsonify({"error": "some of the values are empty"}), 400)
-
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
     order.covert_json()
