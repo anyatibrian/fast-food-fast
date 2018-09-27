@@ -24,6 +24,10 @@ class TestEndPoints(unittest.TestCase):
         # clearing up my array list
         self.orders.clear()
 
+    def test_empty_order_list(self):
+        response = self.test_client.post('/api/v1/orders')
+        self.assertEqual(json.loads(response.data)["error"], "some of the values are empty")
+
     def test_post_order_endpoints(self):
         response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
         self.assertEqual(response.status_code, 201)

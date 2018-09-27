@@ -16,14 +16,6 @@ def post_orders():
             json_data['deliveryType'] == "" or json_data['pieces'] == "":
         return make_response(jsonify({"error": "some of the values are empty"}), 400)
         return make_response(jsonify({"error": "your data should only contains string"}))
-    if not isinstance(json_data['username'], str):
-        return make_response(jsonify({'error': 'bad string'}))
-    elif not isinstance(json_data['location'], str):
-        return make_response(jsonify({'error': 'bad string'}))
-    elif not isinstance(json_data['deliveryType'], str):
-        return make_response(jsonify({'error': 'bad string'}))
-    elif not isinstance(json_data['pieces'], int):
-        return make_response(jsonify({'error': ' piece should only be integers'}))
 
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
