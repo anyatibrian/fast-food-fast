@@ -10,15 +10,6 @@ class Orders:
         self.pieces = pieces
         self.orderStatus = orderStatus
 
-    def validate_string(self):
-        if not isinstance(self.username, str) \
-                or not isinstance(self.food, str) \
-                or not isinstance(self.location, str) \
-                or not isinstance(self.delivery_type, str) \
-                or not isinstance(self.orderStatus, str)\
-                or not isinstance(self.pieces, str):
-            return True
-
     def covert_json(self):
         if not isinstance(self.username, str):
             return "error string"

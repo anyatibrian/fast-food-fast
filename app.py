@@ -16,11 +16,19 @@ def post_orders():
             json_data['deliveryType'] == "" or json_data['pieces'] == "":
         return make_response(jsonify({"error": "some of the values are empty"}), 400)
         return make_response(jsonify({"error": "your data should only contains string"}))
+    if not json_data['username'].isalpha():
+        return make_response(jsonify({'error': 'username should be only strings'}))
+    if not json_data['location'].isalpha():
+        return make_response(jsonify({'error': 'location should be only string'}))
+    if not json_data['food'].isalpha():
+        return make_response(jsonify({'error': 'food name should be only string'}))
+    if not json_data['deliveryType'].isalpha():
+        return jsonify({'error': 'delivery type should be only strings'})
+    if not json_data['pieces'].isnumeric():
+        return make_response(jsonify({'error': 'pieces should be only numbers'}))
 
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
                    delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
-    # if order.validate_string():
-    # return make_response(jsonify({'error': 'your data should only contain strings'}))
     order.covert_json()
     return make_response(jsonify({'message': 'your order has been placed'}), 201)
 
