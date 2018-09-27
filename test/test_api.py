@@ -25,7 +25,7 @@ class TestEndPoints(unittest.TestCase):
         self.orders.clear()
 
     def test_empty_order_list(self):
-        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
+        response = self.test_client.post('/api/v1/orders')
         self.assertEqual(response.status_code, 400)
 
     def test_post_order_endpoints(self):
