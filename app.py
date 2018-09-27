@@ -3,12 +3,7 @@ from flask import jsonify, request, make_response
 from api.modules import Orders, order_collection
 
 
-@app.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({"error": "the order does not exist"}), 404)
-
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def get_index():
     return make_response(jsonify({'message': 'hi there your welcome to fast food fast'}))
 
@@ -17,18 +12,18 @@ def get_index():
 def post_orders():
     # function that allow making of orders
     json_data = request.get_json(force=True)
+    if json_data['location'] and json_data['food'] and json_data['username'] == "":
+        return make_response(jsonify({"error": "some of the values are empty"}), 400)
+    elif json_data['deliveryType'] and json_data['pieces'] == "":
+        return make_response(jsonify({"error": "some of the values are empty"}), 400)
+
     order = Orders(username=json_data['username'], food=json_data['food'], location=json_data['location'],
-                   delivery_type=json_data['deliveryType'], pieces=json_data['pieces'],
-                   orderStatus=json_data['orderStatus'])
-    validate_orders = order.validate_orders(json_data)
-    if validate_orders:
-        order.covert_json()
-        return make_response(jsonify({'message': 'the your order has been placed'}), 201)
-    else:
-        return jsonify({'message': 'list is empty'})
+                   delivery_type=json_data['deliveryType'], pieces=json_data['pieces'])
+    order.covert_json()
+    return make_response(jsonify({'message': 'your order has been placed'}), 201)
 
 
-@app.route('/api/v1/orders/', methods=['GET', 'POST'])
+@app.route('/api/v1/orders/', methods=['GET'])
 def get_orders():
     # creating an endpoint that  returns all the orders made by the user
     if len(order_collection) > 0:
@@ -37,7 +32,7 @@ def get_orders():
         return make_response(jsonify({'error': 'the order does not exist'}), 404)
 
 
-@app.route('/api/v1/orders/<int:orderID>', methods=['GET', 'POST'])
+@app.route('/api/v1/orders/<int:orderID>', methods=['GET'])
 def get_single_order(orderID):
     # end point that enables the fetching of a particular order by the user
     orders = [order for order in order_collection if order['orderID'] == orderID]
@@ -60,6 +55,16 @@ def put_orders(orderID):
 
     else:
         return make_response(jsonify({'error': 'request method not allowed'}), 405)
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": "the order does not exist"}), 404)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return make_response(jsonify({"error": "some of the values are empty"}), 400)
 
 
 if __name__ == '__main__':

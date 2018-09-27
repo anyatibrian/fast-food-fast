@@ -24,30 +24,34 @@ class TestEndPoints(unittest.TestCase):
         # clearing up my array list
         self.orders.clear()
 
+    def test_empty_order_list(self):
+        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
+        self.assertEqual(response.status_code, 400)
+
     def test_post_order_endpoints(self):
-        response = self.test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(self.orders))
+        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
         self.assertEqual(response.status_code, 201)
 
     def test_successive_post(self):
         """checking were the posting of data was made"""
-        response = self.test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(self.orders))
-        self.assertTrue(b'the your order has been placed' in response.data)
+        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
+        self.assertTrue(b'your order has been placed' in response.data)
 
     def test_get_all_orders_endPoints(self):
         """ making sure data is posted before were retrieve the all orders"""
-        response = self.test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(self.orders))
+        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
         self.assertEqual(response.status_code, 201)
         """getting data posted data"""
-        response = self.test_client.get('/api/v1/orders/', content_type='html/text')
+        response = self.test_client.get('/api/v1/orders/')
         self.assertEqual(response.status_code, 200)
 
     def test_order_not_found(self):
-        response = self.test_client.get('/api/v1/orders/0', content_type='html/text')
+        response = self.test_client.get('/api/v1/orders/0')
         self.assertEqual(json.loads(response.data)["error"], "the order does not exist")
 
     def test_get_single_order_endpoints(self):
         """ making a post request before we can edit the list"""
-        response = self.test_client.post('/api/v1/orders', content_type='html/text', data=json.dumps(self.orders))
+        response = self.test_client.post('/api/v1/orders', data=json.dumps(self.orders))
         self.assertEqual(response.status_code, 201)
         """ making get request for single  project"""
         response = self.test_client.get('/api/v1/orders/1')
