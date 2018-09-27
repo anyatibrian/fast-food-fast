@@ -23,7 +23,6 @@ class TestEndPoints(unittest.TestCase):
         """setting up the tear down methods to clear up test data"""
         # clearing up my array list
         self.orders.clear()
-    /
     def test_empty_order_list(self):
         response = self.test_client.post('/api/v1/orders')
         self.assertEqual(json.loads(response.data)["error"], "some of the values are empty")
