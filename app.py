@@ -58,7 +58,7 @@ def put_orders(orderID):
         json_data = request.get_json(force=True)
         orders = [order for order in order_collection if order['orderID'] == orderID]
         if len(orders) == 0:
-            return make_response(jsonify({'error': 'the order does not exist'}), 404)
+            return make_response(jsonify({'error': 'the order does not exist'}), 204)
         else:
             orders[0]['orderStatus'] = json_data['orderStatus']
             return make_response(jsonify({'message': 'successfully updated'}), 200)

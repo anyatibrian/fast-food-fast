@@ -65,7 +65,7 @@ class TestEndPoints(unittest.TestCase):
     def test_put_order_not_exist_endpoint(self):
         """testing the user put order endpoint"""
         response = self.test_client.put('/api/v1/orders/20', data=json.dumps(dict(orderStatus="complete")))
-        self.assertEqual(json.loads(response.data)["error"], "the order does not exist")
+        self.assertEqual(response.status_code, 204)
 
     def test_index_page_loaded(self):
         response = self.test_client.get('/')

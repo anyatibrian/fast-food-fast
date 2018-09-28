@@ -11,8 +11,6 @@ class Orders:
         self.orderStatus = orderStatus
 
     def covert_json(self):
-        if not isinstance(self.username, str):
-            return "error string"
         orders = {
             "orderID": len(order_collection) + 1,
             "username": self.username,
