@@ -27,7 +27,7 @@ These are the endpoints
 | GET    | /api/v1/orders/   | Get all orders                                                       |                                                                |
 | GET    | /api/v1/orders/id | Get specific orders using an id                                      |                                                                |
 | POST   | /api/v1/orders    | Place a new orders                                                   | username ,deliveryType,location ,  pieces  |
-| PUT    | /api/v1/orders/id | Update a specific orders status to 'complete','pending','decline',accept | order_status                                                   |
+| PUT    | /api/v1/orders/id | Update a specific orders status to 'complete','pending','decline',accept | orderStatus                                                 |
 |                                 |                                                                |
 
 APIs are Hosted at https://fast-food-fast-ab.herokuapp.com/api/v1/orders
